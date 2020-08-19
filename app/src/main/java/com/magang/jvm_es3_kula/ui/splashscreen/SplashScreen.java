@@ -1,9 +1,12 @@
-package com.magang.jvm_es3_kula;
+package com.magang.jvm_es3_kula.ui.splashscreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.magang.jvm_es3_kula.R;
+import com.magang.jvm_es3_kula.ui.home.HomeFragment;
 
 public class SplashScreen extends AppCompatActivity {
 

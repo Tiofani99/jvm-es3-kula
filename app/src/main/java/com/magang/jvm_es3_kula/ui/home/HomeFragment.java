@@ -1,4 +1,4 @@
-package com.magang.jvm_es3_kula;
+package com.magang.jvm_es3_kula.ui.home;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.magang.jvm_es3_kula.R;
 
 /**
  * A simple {@link Fragment} subclass.
