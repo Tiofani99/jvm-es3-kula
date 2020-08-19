@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_kategori"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".KategoriFragment">
+    tools:context=".ui.category.KategoriFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
