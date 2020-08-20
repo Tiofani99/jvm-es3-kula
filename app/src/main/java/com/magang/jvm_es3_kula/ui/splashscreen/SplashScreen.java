@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.magang.jvm_es3_kula.R;
-import com.magang.jvm_es3_kula.ui.home.HomeFragment;
+import com.magang.jvm_es3_kula.ui.main.MainActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -21,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
                     sleep(3000);
                 }catch (InterruptedException e) {
                 }finally {
-                    startActivity(new Intent(SplashScreen.this, HomeFragment.class));
+                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
                     finish();
                 }
             }
