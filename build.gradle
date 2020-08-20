@@ -48,4 +48,8 @@ ext {
     mockitoVersion = '3.1.0'
     roomVersion = '2.2.3'
     pagingVersion = '2.1.2'
+
+    idleResourceVersion = '3.2.0'
+
+    archLifecycleVersion = '2.1.0'
 }
