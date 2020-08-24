@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.magang.jvm_es3_kula.data.DataRepository;
+import com.magang.jvm_es3_kula.data.rest.response.CategoryResponse;
 import com.magang.jvm_es3_kula.data.rest.response.ProductResponse;
 
 import java.util.List;
@@ -18,5 +19,9 @@ public class ProductViewModel extends ViewModel {
 
     public LiveData<List<ProductResponse>> getAllProduct(){
         return dataRepository.getAllProducts();
+    }
+
+    public LiveData<List<CategoryResponse>> getAllCategory(){
+        return dataRepository.getAllCategory();
     }
 }

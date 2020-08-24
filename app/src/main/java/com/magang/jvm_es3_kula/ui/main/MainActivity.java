@@ -8,16 +8,16 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.magang.jvm_es3_kula.CategoryAdapter;
 import com.magang.jvm_es3_kula.R;
-import com.magang.jvm_es3_kula.kategori;
+import com.magang.jvm_es3_kula.data.rest.response.CategoryResponse;
 import com.magang.jvm_es3_kula.viewmodel.ViewModelFactory;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rvktgori;
-    private ArrayList<kategori> list = new ArrayList<>();
+    private ArrayList<CategoryResponse> list = new ArrayList<>();
+    private CategoryAdapter categoryAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         rvktgori = findViewById(R.id.rv_home);
         rvktgori.setHasFixedSize(true);
-        list.addAll(ZdkData.getListData());
-        showRecycleList();
+//        showRecycleList();
+        initAdapter();
 
         ViewModelFactory factory = ViewModelFactory.getInstance(this);
         ProductViewModel viewModel = new ViewModelProvider(this, factory).get(ProductViewModel.class);
@@ -35,11 +35,25 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getAllProduct().observe(this, productResponses -> {
             Log.d("Coba", "List Product : " + productResponses.size());
         });
+
+        viewModel.getAllCategory().observe(this, categoryResponses -> {
+            Log.d("Coba", "List Category : " + categoryResponses.size());
+            categoryAdapter.setListktgori((ArrayList<CategoryResponse>) categoryResponses);
+            rvktgori.setAdapter(categoryAdapter);
+        });
+
+
     }
 
-    private void showRecycleList() {
+//    private void showRecycleList() {
+//        rvktgori.setLayoutManager(new LinearLayoutManager(this));
+//        CategoryAdapter categoryAdapter = new CategoryAdapter(this, list);
+//        rvktgori.setAdapter(categoryAdapter);
+//    }
+
+    private void initAdapter() {
         rvktgori.setLayoutManager(new LinearLayoutManager(this));
-        CategoryAdapter categoryAdapter = new CategoryAdapter(this, list);
-        rvktgori.setAdapter(categoryAdapter);
+        categoryAdapter = new CategoryAdapter(MainActivity.this);
+        categoryAdapter.notifyDataSetChanged();
     }
 }
