@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.test.espresso.IdlingResource;
 
+import com.magang.jvm_es3_kula.data.rest.response.CategoryResponse;
 import com.magang.jvm_es3_kula.data.rest.response.ProductResponse;
 
 import java.util.List;
@@ -52,5 +53,25 @@ public class ApiCall {
         });
 
         return listProducts;
+    }
+
+    public LiveData<List<CategoryResponse>> getAllCategory(){
+        MutableLiveData<List<CategoryResponse>> listCategory = new MutableLiveData<>();
+        Call<CategoryResponse> productCall = apiClient.getAllCategory();
+        productCall.enqueue(new Callback<CategoryResponse>() {
+            @Override
+            public void onResponse(Call<CategoryResponse> call, Response<CategoryResponse> response) {
+                if(response.body()!=null){
+                    listCategory.postValue(response.body().getList());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CategoryResponse> call, Throwable t) {
+                Log.d(TAG,"data kosong");
+            }
+        });
+
+        return listCategory;
     }
 }

@@ -2,6 +2,8 @@ package com.magang.jvm_es3_kula.data.rest.response;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class CategoryResponse {
     @SerializedName("id")
     private int id;
@@ -11,6 +13,9 @@ public class CategoryResponse {
 
     @SerializedName("category_image")
     private String categoryImage;
+
+    @SerializedName("data")
+    private ArrayList<CategoryResponse> list;
 
     public int getId() {
         return id;
@@ -34,5 +39,13 @@ public class CategoryResponse {
 
     public void setCategoryImage(String categoryImage) {
         this.categoryImage = categoryImage;
+    }
+
+    public ArrayList<CategoryResponse> getList() {
+        return list;
+    }
+
+    public void setList(ArrayList<CategoryResponse> list) {
+        this.list = list;
     }
 }
