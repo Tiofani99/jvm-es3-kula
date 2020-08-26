@@ -16,7 +16,7 @@ public class ListProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_product);
 
-        String id = getIntent().getStringExtra(EXTRA_ID_CATEGORY);
+        int id = getIntent().getIntExtra(EXTRA_ID_CATEGORY, 0);
         Log.d("Coba","ID Kategori "+id);
 
     }
