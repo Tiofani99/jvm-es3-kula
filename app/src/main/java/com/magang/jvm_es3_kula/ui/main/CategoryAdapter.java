@@ -1,6 +1,7 @@
 package com.magang.jvm_es3_kula.ui.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.magang.jvm_es3_kula.BuildConfig;
 import com.magang.jvm_es3_kula.R;
 import com.magang.jvm_es3_kula.data.rest.response.CategoryResponse;
+import com.magang.jvm_es3_kula.ui.listproduct.ListProductActivity;
 
 import java.util.ArrayList;
 
@@ -51,7 +53,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ListVi
                 .into(holder.imgPhoto);
         holder.tvName.setText(zdk.getCategoryName());
         holder.tvDesc.setText(zdk.getCategoryName());
-        Log.d("Coba","Link gambar : "+BuildConfig.LINK_CATEGORY_IMAGE+zdk.getCategoryImage());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ListProductActivity.class);
+                intent.putExtra(ListProductActivity.EXTRA_ID_CATEGORY,zdk.getId());
+                context.startActivity(intent);
+            }
+        });
 
     }
 

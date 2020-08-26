@@ -5,11 +5,13 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.magang.jvm_es3_kula.R;
 import com.magang.jvm_es3_kula.data.rest.response.CategoryResponse;
+import com.magang.jvm_es3_kula.data.rest.response.ProductResponse;
 import com.magang.jvm_es3_kula.viewmodel.ViewModelFactory;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvktgori;
     private ArrayList<CategoryResponse> list = new ArrayList<>();
     private CategoryAdapter categoryAdapter;
+    private GridProdukAdapter gridProdukAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel.getAllProduct().observe(this, productResponses -> {
             Log.d("Coba", "List Product : " + productResponses.size());
+//            gridProdukAdapter.setListProduk((ArrayList<ProductResponse>) productResponses);
+//            rvktgori.setAdapter(gridProdukAdapter);
         });
 
         viewModel.getAllCategory().observe(this, categoryResponses -> {
@@ -55,5 +60,8 @@ public class MainActivity extends AppCompatActivity {
         rvktgori.setLayoutManager(new LinearLayoutManager(this));
         categoryAdapter = new CategoryAdapter(MainActivity.this);
         categoryAdapter.notifyDataSetChanged();
+//        rvktgori.setLayoutManager(new GridLayoutManager(this, 2));
+//        gridProdukAdapter = new GridProdukAdapter(MainActivity.this);
+//        gridProdukAdapter.notifyDataSetChanged();
     }
 }
