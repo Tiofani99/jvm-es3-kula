@@ -1,4 +1,4 @@
-package com.magang.jvm_es3_kula.ui;
+package com.magang.jvm_es3_kula.ui.detail;
 
 import androidx.appcompat.app.AppCompatActivity;
 
