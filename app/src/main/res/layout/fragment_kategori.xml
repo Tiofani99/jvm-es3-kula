@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="350dp"
             android:layout_marginTop="6dp"
-            app:cardBackgroundColor="@color/colorwhite" />
+            app:cardBackgroundColor="@color/colorWhite" />
 
     </androidx.appcompat.widget.Toolbar>
 

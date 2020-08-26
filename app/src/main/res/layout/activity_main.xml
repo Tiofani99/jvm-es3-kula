@@ -31,7 +31,7 @@
                     android:paddingStart="16dp"
                     android:paddingTop="22dp"
                     android:text="@string/nama_aplikasi"
-                    android:textColor="@color/colorwhite"
+                    android:textColor="@color/colorWhite"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     tools:ignore="RtlSymmetry" />
@@ -44,7 +44,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="16dp"
-                    app:cardBackgroundColor="@color/colorwhite"
+                    app:cardBackgroundColor="@color/colorWhite"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp">
 
@@ -98,7 +98,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:text="@string/_500"
-                                    android:textColor="@color/colorwhite"
+                                    android:textColor="@color/colorWhite"
                                     android:textSize="25sp"
                                     android:textStyle="bold" />
 
@@ -107,7 +107,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:text="@string/produk"
-                                    android:textColor="@color/colorwhite"
+                                    android:textColor="@color/colorWhite"
                                     android:textSize="25sp"
                                     android:textStyle="bold" />
 
@@ -137,7 +137,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:text="@string/_23"
-                                    android:textColor="@color/colorwhite"
+                                    android:textColor="@color/colorWhite"
                                     android:textSize="25sp"
                                     android:textStyle="bold" />
 
@@ -146,7 +146,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:text="@string/kategori"
-                                    android:textColor="@color/colorwhite"
+                                    android:textColor="@color/colorWhite"
                                     android:textSize="25sp"
                                     android:textStyle="bold" />
 
