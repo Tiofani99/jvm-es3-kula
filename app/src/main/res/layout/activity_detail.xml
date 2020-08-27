@@ -6,62 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailActivity">
 
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UnknownId">
+        <RelativeLayout
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnknownId">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/iv_poster_detail"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:contentDescription="@string/cd_img_pet"
-        android:scaleType="centerCrop" />
+            <ImageView
+                android:id="@+id/iv_poster_detail"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:contentDescription="@string/cd_img_pet"
+                android:scaleType="centerCrop" />
 
-        <TextView
-            android:id="@+id/tv_detail_nama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_toStartOf="@id/iv_poster_detail"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="@string/produk"
-            android:textColor="@color/colorblak"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/tv_detail_harga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_toStartOf="@id/tv_detail_nama"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="@string/harga"
-            android:textColor="@color/colorblak"
-            android:textSize="21sp" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tv_detail_nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_toStartOf="@id/iv_poster_detail"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/produk"
+                android:textColor="@color/colorblak"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_detail_harga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_toStartOf="@id/tv_detail_nama"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/harga"
+                android:textColor="@color/colorblak"
+                android:textSize="21sp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginTop="400dp"
             android:orientation="horizontal"
             android:weightSum="3">
 
@@ -80,7 +81,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_age_detail"
+                        android:id="@+id/tv_stok"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
@@ -112,7 +113,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_color_detail"
+                        android:id="@+id/tv_berat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
@@ -122,7 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/warna"
+                        android:text="@string/berat"
                         android:textColor="@color/colorblak"
                         android:textSize="12sp" />
 
@@ -146,7 +147,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_weight_detail"
+                        android:id="@+id/tv_asuransi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
@@ -156,15 +157,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/berat"
+                        android:text="@string/asuransi"
                         android:textColor="@color/colorblak"
                         android:textSize="12sp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-        </LinearLayout>
-    </ScrollView>
 
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_story_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/deskripsi_produk"
+                android:layout_marginTop="520dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:ellipsize="end"
+                android:maxLines="4" />
+
+    </RelativeLayout>
 
 
 

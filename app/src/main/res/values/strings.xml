@@ -18,5 +18,7 @@
     <string name="warna">Warna</string>
     <string name="berat">Berat</string>
     <string name="deskripsi">deskripsi</string>
+    <string name="asuransi">Asuransi</string>
+    <string name="deskripsi_produk">Deskripsi Produk</string>
 
 </resources>
