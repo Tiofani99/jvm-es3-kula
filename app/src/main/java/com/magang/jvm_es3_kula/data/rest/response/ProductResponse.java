@@ -1,10 +1,13 @@
 package com.magang.jvm_es3_kula.data.rest.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-public class ProductResponse {
+public class ProductResponse implements Parcelable {
 
     @SerializedName("id")
     private int id;
@@ -30,6 +33,33 @@ public class ProductResponse {
     @SerializedName("data")
     private ArrayList<ProductResponse> list;
 
+
+    protected ProductResponse(Parcel in) {
+        id = in.readInt();
+        categoryId = in.readInt();
+        productName = in.readString();
+        productDesc = in.readString();
+        if (in.readByte() == 0) {
+            productPrice = null;
+        } else {
+            productPrice = in.readLong();
+        }
+        productStock = in.readInt();
+        productImage = in.readString();
+        list = in.createTypedArrayList(ProductResponse.CREATOR);
+    }
+
+    public static final Creator<ProductResponse> CREATOR = new Creator<ProductResponse>() {
+        @Override
+        public ProductResponse createFromParcel(Parcel in) {
+            return new ProductResponse(in);
+        }
+
+        @Override
+        public ProductResponse[] newArray(int size) {
+            return new ProductResponse[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -93,5 +123,27 @@ public class ProductResponse {
 
     public void setList(ArrayList<ProductResponse> list) {
         this.list = list;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeInt(categoryId);
+        parcel.writeString(productName);
+        parcel.writeString(productDesc);
+        if (productPrice == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeLong(productPrice);
+        }
+        parcel.writeInt(productStock);
+        parcel.writeString(productImage);
+        parcel.writeTypedList(list);
     }
 }

@@ -6,6 +6,9 @@
     android:layout_margin="5dp"
     app:cardCornerRadius='10dp'
     android:orientation="vertical"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
     android:id="@+id/cardview_item_home">
 
     <LinearLayout

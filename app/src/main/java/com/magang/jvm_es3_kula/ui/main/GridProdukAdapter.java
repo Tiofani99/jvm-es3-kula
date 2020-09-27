@@ -1,5 +1,7 @@
 package com.magang.jvm_es3_kula.ui.main;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,19 +13,35 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.magang.jvm_es3_kula.BuildConfig;
 import com.magang.jvm_es3_kula.R;
+import com.magang.jvm_es3_kula.data.rest.response.CategoryResponse;
 import com.magang.jvm_es3_kula.data.rest.response.ProductResponse;
+import com.magang.jvm_es3_kula.ui.detail.DetailActivity;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class GridProdukAdapter extends RecyclerView.Adapter<GridProdukAdapter.GridViewHolder> {
-    private ArrayList<ProductResponse> listProduk;
+    private ArrayList<ProductResponse> listProduk = new ArrayList<>();
+    private Context context;
 
     public GridProdukAdapter(ArrayList<ProductResponse> list) {
         this.listProduk = list;
+    }
+
+    public GridProdukAdapter(Context context) {
+        this.context = context;
+    }
+
+    public void setListProduk(ArrayList<ProductResponse> items){
+        listProduk.clear();
+        listProduk.addAll(items);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -61,11 +79,22 @@ public class GridProdukAdapter extends RecyclerView.Adapter<GridProdukAdapter.Gr
 
         void bind(ProductResponse product) {
             Glide.with(itemView.getContext())
-                    .load(product.getProductImage())
-                    .apply(new RequestOptions().override(350, 550))
+                    .load(BuildConfig.LINK_PRODUCT_IMAGE+product.getProductImage())
+//                    .apply(new RequestOptions().override(350, 550))
                     .into(imgPhoto);
-            nameProduct.setText(product.getProductName(),hargaProduct.setText(product.getProductPrice();
+            nameProduct.setText(product.getProductName());
+            Locale localeID = new Locale("in", "ID");
+            NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+            hargaProduct.setText(formatRupiah.format(Double.parseDouble(String.valueOf(product.getProductPrice()))));
         }
 
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            ProductResponse product = listProduk.get(position);
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra(DetailActivity.EXTRA_PRODUCT,product);
+            itemView.getContext().startActivity(intent);
+        }
     }
 }

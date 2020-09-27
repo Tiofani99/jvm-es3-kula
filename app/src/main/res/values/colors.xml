@@ -8,4 +8,5 @@
     <color name="colororange">#FFA54A</color>
     <color name="colorblak">#053354</color>
     <color name="colorShimmer">#DFDFDF</color>
+    <color name="transparent">#00000000</color>
 </resources>
