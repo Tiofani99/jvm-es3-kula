@@ -76,7 +76,7 @@
                         android:weightSum="2">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cv_produk"
+                            android:id="@+id/cv_add_item"
                             android:layout_width="0dp"
                             android:layout_height="100dp"
                             android:layout_weight="1"
@@ -97,16 +97,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:text="@string/_500"
-                                    android:textColor="@color/colorWhite"
-                                    android:textSize="25sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="@string/produk"
+                                    android:text="@string/item"
                                     android:textColor="@color/colorWhite"
                                     android:textSize="25sp"
                                     android:textStyle="bold" />
